@@ -12,6 +12,14 @@ export const setPosts = (posts) => {
 }
 
 
+export const fetchPost = (postId) => {
+  return function(dispatch) {
+    return postConsumer.read(postId)
+      .then((post) => dispatch(setPosts([post])) )
+  }
+}
+
+
 export const fetchPosts = () => {
   return function(dispatch) {
     return postConsumer.read()
