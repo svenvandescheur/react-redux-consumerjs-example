@@ -1,14 +1,15 @@
-import React from 'react'
-import Footer from './Footer'
-import AddTodo from '../containers/AddTodo'
-import VisibleTodoList from '../containers/VisibleTodoList'
+import React from 'react';
+import Header from './Header';
+import PostListContainer from '../containers/PostListContainer';
+import PostsFetchContainer from '../containers/PostsFetchContainer';
+
 
 const App = () => (
-  <div>
-    <AddTodo />
-    <VisibleTodoList />
-    <Footer />
-  </div>
+  <section>
+    <Header>React/Redux/Consumerjs example</Header>
+    <PostListContainer />
+    <PostsFetchContainer>Fetch posts</PostsFetchContainer>
+  </section>
 )
 
-export default App
+export default App;

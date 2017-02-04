@@ -1,29 +1,20 @@
-let nextTodoId = 0
-export const addTodo = (text) => {
+import PostConsumer from '../data/post';
+
+
+let postConsumer = new PostConsumer();
+
+
+export const setPosts = (posts) => {
   return {
-    type: 'ADD_TODO',
-    id: nextTodoId++,
-    text
+    type: 'SET_POSTS',
+    posts: posts,
   }
 }
 
-export const setVisibilityFilter = (filter) => {
-  return {
-    type: 'SET_VISIBILITY_FILTER',
-    filter
-  }
-}
 
-export const toggleTodo = (id) => {
-  return {
-    type: 'TOGGLE_TODO',
-    id
-  }
-}
-
-export const asyncAction = () => {
+export const fetchPosts = () => {
   return function(dispatch) {
-    return Promise.resolve()
-      .then(() => dispatch(addTodo('stuff')) )
+    return postConsumer.read()
+      .then((posts) => dispatch(setPosts(posts)) )
   }
 }
