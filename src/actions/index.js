@@ -20,3 +20,10 @@ export const toggleTodo = (id) => {
     id
   }
 }
+
+export const asyncAction = () => {
+  return function(dispatch) {
+    return Promise.resolve()
+      .then(() => dispatch(addTodo('stuff')) )
+  }
+}
