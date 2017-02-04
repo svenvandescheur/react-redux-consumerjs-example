@@ -1,11 +1,14 @@
 
 import React from 'react';
-import Post from './Post';
+import PostContainer from '../containers/PostContainer';
+
 
 const PostList = (props) => (
   <ul>
     {props.posts.map(post =>
-      <Post key={ post.id } post={ post } />
+      <li key={ post.id }>
+        <PostContainer post={ post } />
+      </li>
     )}
   </ul>
 )
