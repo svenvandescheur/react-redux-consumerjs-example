@@ -5,6 +5,6 @@ An example combining [React](https://facebook.github.io/react/), [Redux](http://
 ## Installation
 
 - Clone it!
-- Make sure you have json-server installed globally (`npm install json-server`).
+- Make sure you have json-server installed globally (`npm install -g json-server`).
 - Install dependencies: `npm install`.
 - Start: `npm start`.
