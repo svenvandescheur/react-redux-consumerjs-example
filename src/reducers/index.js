@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
 import posts from './posts'
 
-const store = combineReducers({
+const reducer = combineReducers({
   posts,
 })
 
-export default store
+export default reducer

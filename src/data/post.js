@@ -5,7 +5,7 @@ class Post extends CrudConsumerObject {}
 
 
 class PostConsumer extends CrudConsumer {
-    constructor(endpoint='https://jsonplaceholder.typicode.com/posts/', objectClass=Post) {
+    constructor(endpoint='http://localhost:1234/posts/', objectClass=Post) {
         super(endpoint, objectClass);
     }
 ;}
