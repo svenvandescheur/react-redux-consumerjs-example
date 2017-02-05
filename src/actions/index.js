@@ -30,9 +30,8 @@ export const setPostState = (post) => {
 export const fetchPost = (postId) => {
   return function(dispatch) {
     return postConsumer.read(postId)
-      .then((posts) => {
-        dispatch(clearPosts());
-        dispatch(setPosts([posts]));
+      .then((post) => {
+        dispatch(setPosts([post]));
       });
   }
 }
@@ -42,7 +41,6 @@ export const fetchPosts = () => {
   return function(dispatch) {
     return postConsumer.read()
       .then((posts) => {
-        dispatch(clearPosts());
         dispatch(setPosts(posts));
       });
   }

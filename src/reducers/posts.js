@@ -7,12 +7,13 @@ const posts = (state = [], action) => {
       return action.posts
 
     case 'SET_POST_STATE':
-      return state.map((post) => {
+      let result = state.map((post) => {
         if (post.id === action.post.id) {
-          post = action.post;
+          return action.post;
         }
         return post;
       });
+      return result;
 
     default:
       return state
