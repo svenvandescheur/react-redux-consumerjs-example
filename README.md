@@ -1,6 +1,6 @@
 # React, Redux, Consumerjs example
 
-An example combining [React](https://facebook.github.io/react/), [Redux](http://redux.js.org/docs/introduction/) and [Consumerjs](https://github.com/maykinmedia/consumerjs)
+An example combining [React](https://facebook.github.io/react/), [Redux](http://redux.js.org/docs/introduction/) and [Consumerjs](https://github.com/maykinmedia/consumerjs).
 
 ## Installation
 
