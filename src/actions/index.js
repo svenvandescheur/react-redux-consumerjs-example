@@ -1,4 +1,5 @@
 import PostConsumer from '../data/post';
+import { dataError } from '../lib/error';
 
 
 let postConsumer = new PostConsumer();
@@ -38,9 +39,8 @@ export const setPostState = (post) => {
 export const addPost = () => {
   return function(dispatch) {
     return postConsumer.create()
-      .then((post) => {
-        dispatch(setPosts([post]));
-      });
+      .then((post) => dispatch(setPosts([post])))
+      .catch(dataError);
     }
 }
 
@@ -48,9 +48,8 @@ export const addPost = () => {
 export const deletePost = (post) => {
   return function(dispatch) {
     return post.delete()
-      .then(() => {
-        dispatch(removePost(post));
-      });
+      .then(() => dispatch(removePost(post)))
+      .catch(dataError);
     }
 }
 
@@ -58,9 +57,8 @@ export const deletePost = (post) => {
 export const fetchPost = (postId) => {
   return function(dispatch) {
     return postConsumer.read(postId)
-      .then((post) => {
-        dispatch(setPosts([post]));
-      });
+      .then((post) => dispatch(setPosts([post])))
+      .catch(dataError);
   }
 }
 
@@ -68,9 +66,8 @@ export const fetchPost = (postId) => {
 export const fetchPosts = () => {
   return function(dispatch) {
     return postConsumer.read()
-      .then((posts) => {
-        dispatch(setPosts(posts));
-      });
+      .then((posts) => dispatch(setPosts(posts)))
+      .catch(dataError);
   }
 }
 
@@ -81,6 +78,7 @@ export const updatePost = (post, data) => {
 
   return function(dispatch) {
     return post.update()
-      .then((post) => dispatch(setPostState(post)) )
+      .then((post) => dispatch(setPostState(post)))
+      .catch(dataError);
   }
 }
