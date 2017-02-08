@@ -11,6 +11,14 @@ export const clearPosts = () => {
 }
 
 
+export const removePost = (post) => {
+  return {
+    type: 'REMOVE_POST',
+    post: post,
+  }
+}
+
+
 export const setPosts = (posts) => {
   return {
     type: 'SET_POSTS',
@@ -24,6 +32,26 @@ export const setPostState = (post) => {
     type: 'SET_POST_STATE',
     post: post,
   }
+}
+
+
+export const addPost = () => {
+  return function(dispatch) {
+    return postConsumer.create()
+      .then((post) => {
+        dispatch(setPosts([post]));
+      });
+    }
+}
+
+
+export const deletePost = (post) => {
+  return function(dispatch) {
+    return post.delete()
+      .then(() => {
+        dispatch(removePost(post));
+      });
+    }
 }
 
 

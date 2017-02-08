@@ -3,6 +3,9 @@ const posts = (state = [], action) => {
     case 'CLEAR_POSTS':
       return [];
 
+    case 'REMOVE_POST':
+      return state.filter((post) => post.id !== action.post.id);
+
     case 'SET_POSTS':
       return action.posts
 
